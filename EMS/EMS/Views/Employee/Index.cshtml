@@ -1,0 +1,83 @@
+﻿@model IEnumerable<EMS.Models.EmployeeInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="table" class="display">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Serial No")
+            </th>
+            <th>
+                @Html.DisplayName("Employee Name")
+            </th>
+            <th>
+                @Html.DisplayName("Gender")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+
+            <th>
+                @Html.DisplayName("Employee Phone")
+            </th>
+            <th>
+                @Html.DisplayName("Department")
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+        </tr>
+    </thead>
+
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            @if (item.EmployeeGender == true)
+            {
+                <td>
+                    @Html.DisplayName("Male")
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.DisplayName("Female")
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeEmail)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation.DesignationName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+
+
+            </td>
+        </tr>
+    }
+
+</table>

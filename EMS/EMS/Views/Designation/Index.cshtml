@@ -1,0 +1,59 @@
+﻿@model IEnumerable<EMS.Models.Designation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="display" id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Serial No")
+            </th>
+            <th>
+                @Html.DisplayName("Designation Name")
+            </th>
+            <th>
+                @Html.DisplayName("Department")
+            </th>
+            <th>
+                @Html.DisplayName("Salary/Hour")
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    @{ int i = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{ i++;}
+                @i;
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SPH)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DesignationId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DesignationId }) |
+
+            </td>
+        </tr>
+    }
+
+</table>

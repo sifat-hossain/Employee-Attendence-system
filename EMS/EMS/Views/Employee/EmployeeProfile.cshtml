@@ -1,0 +1,76 @@
+﻿@model EMS.Models.EmployeeInfo
+
+@{
+    ViewBag.Title = "EmployeeProfile";
+}
+
+<br />
+<br />
+<br />
+
+
+<section class="content" style="text-align:center;margin-left:400px">
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="box box-solid box-primary ">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Profile of @Model.EmployeeName  </h3>
+                </div>
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmployeeName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EmployeeName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmployeeGender)
+                        </dt>
+                        @if (Model.EmployeeGender == true)
+                        {
+                            <dd>
+                                @Html.DisplayName("Male")
+                            </dd>
+                        }
+                        else
+                        {
+                            <dd>
+                                @Html.DisplayName("Female")
+                            </dd>
+                        }
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmployeeEmail)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EmployeeEmail)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EmployeePhone)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EmployeePhone)
+                        </dd>
+
+                        
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Designation.DesignationName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Designation.DesignationName)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

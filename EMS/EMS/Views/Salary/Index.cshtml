@@ -1,0 +1,145 @@
+﻿@model IEnumerable<EMS.Models.Salary>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<br />
+<br />
+<br />
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="display" id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Serial No")
+            </th>
+            <th>
+                @Html.DisplayName("Employee Name")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bonous)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Allownce)
+            </th>
+            <th>
+                @Html.DisplayName("Year")
+            </th>
+            <th>
+                @Html.DisplayName("Month")
+            </th>
+            <th>
+                @Html.DisplayName("Toltal Salarey")
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+        </tr>
+    </thead>
+    @{ int i = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{ i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeInfo.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonous)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allownce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date.Value.Year)
+            </td>
+            @if (item.Date.Value.Month == 1)
+            {
+                <td>
+                    @Html.DisplayName("January")
+                </td>
+            }
+            @if (item.Date.Value.Month == 2)
+            {
+                <td>
+                    @Html.DisplayName("February")
+                </td>
+            }
+            @if (item.Date.Value.Month == 3)
+            {
+                <td>
+                    @Html.DisplayName("March")
+                </td>
+            }
+            @if (item.Date.Value.Month == 4)
+            {
+                <td>
+                    @Html.DisplayName("April")
+                </td>
+            }
+            @if (item.Date.Value.Month == 5)
+            {
+                <td>
+                    @Html.DisplayName("May")
+                </td>
+            }
+            @if (item.Date.Value.Month == 6)
+            {
+                <td>
+                    @Html.DisplayName("June")
+                </td>
+            }
+            @if (item.Date.Value.Month == 7)
+            {
+                <td>
+                    @Html.DisplayName("July")
+                </td>
+            }
+            @if (item.Date.Value.Month == 8)
+            {
+                <td>
+                    @Html.DisplayName("August")
+                </td>
+            }
+            @if (item.Date.Value.Month == 9)
+            {
+                <td>
+                    @Html.DisplayName("September")
+                </td>
+            }
+            @if (item.Date.Value.Month == 10)
+            {
+                <td>
+                    @Html.DisplayName("October")
+                </td>
+            }
+            @if (item.Date.Value.Month == 11)
+            {
+                <td>
+                    @Html.DisplayName("November")
+                </td>
+            }
+            @if (item.Date.Value.Month == 12)
+            {
+                <td>
+                    @Html.DisplayName("December")
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.ToltalSalarey)
+            </td>
+            <td>
+               | @Html.ActionLink("Edit", "Edit", new { id = item.SalaryId }) |
+            </td>
+        </tr>
+    }
+
+</table>

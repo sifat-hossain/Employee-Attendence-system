@@ -1,0 +1,52 @@
+﻿@model EMS.Models.Designation
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<br />
+<section class="content" style="text-align:center;margin-left:500px">
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Designation Details</h3>
+                </div>
+                <form role="form">
+                    <div class="box-body">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayName("Department Name")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Department.DepartmentName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayName("Designation Name")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DesignationName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayName("Salary/Hour")
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SPH)
+                            </dd>
+
+
+                        </dl>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

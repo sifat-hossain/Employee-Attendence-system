@@ -1,0 +1,67 @@
+﻿@model IEnumerable<EMS.Models.Attendence>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="display" id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Serial No")
+            </th>
+            <th>
+                @Html.DisplayName("Employee Name")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayName("Day")
+            </th>
+            <th>
+                @Html.DisplayName("Entry Time")
+            </th>
+            <th>
+                @Html.DisplayName("Out Time")
+            </th>
+            <th>
+                @Html.DisplayName("Total Hour")
+            </th>
+        </tr>
+    </thead>
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeInfo.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date.Value.DayOfWeek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutTime)
+            </td>
+            <td>
+                @(item.OutTime.Value.Hours - item.EntryTime.Value.Hours)
+            </td>
+        </tr>
+    }
+
+</table>

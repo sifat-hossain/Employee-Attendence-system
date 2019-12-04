@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EMS.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="display" id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Serial No")
+            </th>
+            <th>
+                @Html.DisplayName("Department Name")
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+        </tr>
+    </thead>
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @{i++;}
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+               | @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentId }) |         
+            </td>
+        </tr>
+    }
+
+</table>
